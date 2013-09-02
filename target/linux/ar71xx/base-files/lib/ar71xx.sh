@@ -460,7 +460,7 @@ ar71xx_board_detect() {
 	[ -e "/tmp/sysinfo/" ] || mkdir -p "/tmp/sysinfo/"
 
 	echo "$AR71XX_BOARD_NAME" > /tmp/sysinfo/board_name
-	echo "$AR71XX_MODEL" > /tmp/sysinfo/model
+	echo "TP-LINK TL-WR720N V3" > /tmp/sysinfo/model
 }
 
 ar71xx_board_name() {

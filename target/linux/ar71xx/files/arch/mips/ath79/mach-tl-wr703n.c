@@ -25,6 +25,8 @@
 #define TL_WR703N_GPIO_BTN_RESET	11
 
 #define TL_WR703N_GPIO_USB_POWER	8
+#define TL_WR703N_GPIO_BTN_SW1        18
+#define TL_WR703N_GPIO_BTN_SW2        20
 
 #define TL_WR703N_KEYS_POLL_INTERVAL	20	/* msecs */
 #define TL_WR703N_KEYS_DEBOUNCE_INTERVAL	(3 * TL_WR703N_KEYS_POLL_INTERVAL)
@@ -54,6 +56,22 @@ static struct gpio_keys_button tl_wr703n_gpio_keys[] __initdata = {
 		.debounce_interval = TL_WR703N_KEYS_DEBOUNCE_INTERVAL,
 		.gpio		= TL_WR703N_GPIO_BTN_RESET,
 		.active_low	= 0,
+	},
+	{
+	.desc        = "sw1",
+	.type        = EV_KEY,
+	.code        = BTN_0,
+	.debounce_interval = TL_WR703N_KEYS_DEBOUNCE_INTERVAL,
+	.gpio        = TL_WR703N_GPIO_BTN_SW1,
+	.active_low    = 0,
+	},
+	{
+	.desc        = "sw2",
+	.type        = EV_KEY,
+	.code        = BTN_1,
+	.debounce_interval = TL_WR703N_KEYS_DEBOUNCE_INTERVAL,
+	.gpio        = TL_WR703N_GPIO_BTN_SW2,
+	.active_low    = 0,
 	}
 };
 
@@ -77,10 +95,12 @@ static void __init tl_wr703n_setup(void)
 			 "USB power");
 	ath79_register_usb();
 
-	ath79_init_mac(ath79_eth0_data.mac_addr, mac, 0);
+	ath79_init_mac(ath79_eth0_data.mac_addr, mac, 1);
+	ath79_init_mac(ath79_eth1_data.mac_addr, mac, 2);
 
 	ath79_register_mdio(0, 0x0);
 	ath79_register_eth(0);
+	ath79_register_eth(1);
 
 	ath79_register_wmac(ee, mac);
 }
