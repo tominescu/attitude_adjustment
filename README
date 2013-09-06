@@ -30,5 +30,12 @@ the lack of case sensitiveness in the file system.
 Sunshine!
 	Your OpenWrt Project
 	http://openwrt.org
+=====================================================================================
+My changes:
+1. Change wr703n's profile to wr720n(8MB) profile. [2013/09/02]
+2. Open wifi by default. [2013/09/06]
+3. Add support for Simplified Chinese CP936. [2013/09/06]
 
 
+									Xiaofu
+									me@xiaofu.tk
