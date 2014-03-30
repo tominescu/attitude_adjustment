@@ -158,7 +158,6 @@ tl-mr3020 |\
 tl-mr3040 |\
 tl-wa901nd |\
 tl-wa901nd-v2 |\
-tl-wr703n |\
 wp543)
 	ucidef_set_interface_lan_wan "eth1" "eth0"
 	;;
@@ -170,6 +169,7 @@ jwap003 |\
 pb42 |\
 pb44 |\
 routerstation|\
+tl-wr703n |\
 wpe72)
 	ucidef_set_interfaces_lan_wan "eth1" "eth0"
 	;;
